@@ -9,7 +9,7 @@ function App() {
     useWeatherData();
 
   return (
-    <div className="h-dvh w-full overflow-auto bg-gradient-to-br from-purple-400 to-purple-50">
+    <div className="h-dvh w-full overflow-auto bg-gradient-to-br from-blue-900 to-blue-50">
       <SearchCard
         onWeatherData={setWeatherData}
         unitSystem={unitSystem}

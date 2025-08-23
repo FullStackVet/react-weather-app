@@ -92,10 +92,10 @@ export default function HourlyWeather({
   return (
     <section className="w-full px-4 py-6">
       {/* Container */}
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-6 max-w-4xl mx-auto border border-white/20">
+      <div className="bg-white/15 backdrop-blur-md rounded-2xl shadow-2xl p-6 max-w-85% mx-auto border border-white/20">
         {/* Header */}
         <div className="text-center mb-6">
-          <h1 className="text-2xl md:text-3xl font-semibold text-white drop-shadow-md">
+          <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-md mb-2">
             24-Hour Forecast
           </h1>
         </div>
@@ -139,46 +139,46 @@ export default function HourlyWeather({
             {hourlyData.map((hour, index) => (
               <div
                 key={index}
-                className="flex-none w-40 bg-white/05 backdrop-blur-sm rounded-xl p-4 border border-white/20"
+                className="flex-none w-40 bg-blue-300 backdrop-blur-sm rounded-xl p-4 border border-white/20"
               >
-                <p className="text-white font-semibold text-center mb-2">
+                <p className="text-white font-bold text-center text-lg">
                   {HourlyWeatherUtils.formatTime(hour.time)}
                 </p>
                 <img
                   src={hour.condition.icon}
                   alt={hour.condition.text}
-                  className="w-12 h-12 mx-auto mb-2"
+                  className="w-12 h-12 mx-auto"
                 />
                 <p className="text-white text-center text-xl font-bold">
-                  {Math.floor(UnitUtils.getTemperature(hour, unitSystem))}{" "}
+                  {Math.floor(UnitUtils.getTemperature(hour, unitSystem))}
                   {UnitUtils.getTemperatureSymbol(unitSystem)}
                 </p>
-                <p className="text-white/90 text-center font-semibold text-md mt-1">
+                <p className="text-white/90 text-center border-b border-b-black font-semibold text-lg">
                   {hour.condition.text}
                 </p>
                 {/* Feels Like */}
-                <div className="mb-2 text-center">
-                  <p className="text-white/90 font-semibold text-lg">
-                    Feels Like
-                  </p>
-                  <p className="text-white text-md">
-                    {Math.floor(UnitUtils.getFeelsLike(hour, unitSystem))}{" "}
+                <div className="text-center">
+                  <p className="text-white/90 text-lg">
+                    <span className="font-semibold">Feel: </span>
+                    {Math.floor(UnitUtils.getFeelsLike(hour, unitSystem))}
                     {UnitUtils.getTemperatureSymbol(unitSystem)}
                   </p>
                 </div>
 
                 {/* Chance of Precip */}
-                <div className="mt-2 text-center">
-                  <p className="text-white/90 font-semibold text-lg">P.O.P</p>
-                  <p className="text-white text-md">
-                    {HourlyWeatherUtils.getChanceOfPrecipitation(hour)}%
+                <div className="text-center">
+                  <p className="text-white text-lg">
+                    <span className="font-semibold">P.O.P: </span>
+                    <span>
+                      {HourlyWeatherUtils.getChanceOfPrecipitation(hour)}%
+                    </span>
                   </p>
                 </div>
 
                 {/* Wind */}
-                <div className="mt-2 text-center">
-                  <p className="text-white/90 font-semibold text-lg">Wind</p>
-                  <p className="text-white text-md">
+                <div className="text-center">
+                  <p className="text-white/90 text-lg">
+                    <span className="font-semibold">Wind: </span>
                     {Math.floor(UnitUtils.getWindSpeed(hour, unitSystem))}{" "}
                     {UnitUtils.getWindSpeedSymbol(unitSystem)}
                   </p>

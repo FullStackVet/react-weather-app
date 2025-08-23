@@ -41,9 +41,9 @@ export default function CurrentWeatherCard({
 
   return (
     <section className="w-full px-4 py-6">
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-6 max-w-4xl mx-auto border border-white/20">
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl py-6 px-10 max-w-80% mx-auto border border-white/20">
         {/* Header Section */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-2">
           <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-md mb-2">
             Current Weather
           </h1>
@@ -53,14 +53,14 @@ export default function CurrentWeatherCard({
         </div>
 
         {/* Location and Time Details */}
-        <div className="flex justify-center mb-6">
-          <div className="bg-black/30 rounded-xl p-3 text-center">
+        <div className="flex justify-center mb-6 text-lg">
+          <div className="text-center">
             <p className="text-white">
-              <span className="font-medium">Local Time: </span>{" "}
+              <span className="font-semibold">Local Time: </span>{" "}
               {formatLocalTime(location.localtime)}
             </p>
             <p className="text-white mt-1">
-              <span className="font-medium">Coordinates: </span> Lat:{" "}
+              <span className="font-semibold ">Coordinates: </span> Lat:{" "}
               {formatCoordinates(location.lat)}, Long:{" "}
               {formatCoordinates(location.lon)}
             </p>
@@ -74,7 +74,7 @@ export default function CurrentWeatherCard({
             <img
               src={current.condition.icon}
               alt={current.condition.text}
-              className="w-24 h-24 drop-shadow-md"
+              className="w-30 h-30 drop-shadow-lg"
             />
             <div className="ml-4">
               <p className="text-5xl md:text-6xl font-bold text-white drop-shadow-md">
@@ -83,22 +83,22 @@ export default function CurrentWeatherCard({
                   {UnitUtils.getTemperatureSymbol(unitSystem)}
                 </span>
               </p>
-              <p className="text-xl text-white/90 mt-1">
+              <p className="text-2xl drop-shadow-sm font-semibold text-white/90 mt-1">
                 {current.condition.text}
               </p>
-              <p className="text-xl text-white/90 mt-1">
-                <span>Feels Like: </span>
-                {Math.floor(feelsLike)}
-                {UnitUtils.getTemperatureSymbol(unitSystem)}
-              </p>
             </div>
+            <p className="ml-10 text-2xl md:text-4xl drop-shadow-sm font-semibold text-white/90 mt-1">
+              <span>Feels Like: </span>
+              {Math.floor(feelsLike)}
+              {UnitUtils.getTemperatureSymbol(unitSystem)}
+            </p>
           </div>
         </div>
 
         {/* Weather Details Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {/* Wind */}
-          <div className="bg-black/30 rounded-xl p-4 text-center">
+          <div className="bg-blue-300 rounded-full p-4 text-center">
             <p className="text-white/80 mb-1">Wind</p>
             <p className="text-white text-xl font-semibold">
               {Math.floor(windSpeed)} {UnitUtils.getWindSpeedSymbol(unitSystem)}
@@ -106,7 +106,7 @@ export default function CurrentWeatherCard({
           </div>
 
           {/* Gust */}
-          <div className="bg-black/30 rounded-xl p-4 text-center">
+          <div className="bg-blue-300 rounded-full p-4 text-center">
             <p className="text-white/80 mb-1">Gust</p>
             <p className="text-white text-xl font-semibold">
               {Math.floor(wind_gust)} {UnitUtils.getWindSpeedSymbol(unitSystem)}
@@ -114,7 +114,7 @@ export default function CurrentWeatherCard({
           </div>
 
           {/* Humidity */}
-          <div className="bg-black/30 rounded-xl p-4 text-center">
+          <div className="bg-blue-300 rounded-full p-4 text-center">
             <p className="text-white/80 mb-1">Humidity</p>
             <p className="text-white text-xl font-semibold">
               {current.humidity}%
@@ -122,7 +122,7 @@ export default function CurrentWeatherCard({
           </div>
 
           {/* Humidity */}
-          <div className="bg-black/30 rounded-xl p-4 text-center">
+          <div className="bg-blue-300 rounded-full p-4 text-center">
             <p className="text-white/80 mb-1">Precipitation</p>
             <p className="text-white text-xl font-semibold">
               {precipitation} {UnitUtils.getPrecipitationSymbol(unitSystem)}
@@ -130,13 +130,13 @@ export default function CurrentWeatherCard({
           </div>
 
           {/* UV Index */}
-          <div className="bg-black/30 rounded-xl p-4 text-center">
+          <div className="bg-blue-300 rounded-full p-4 text-center">
             <p className="text-white/80 mb-1">UV Index</p>
             <p className="text-white text-xl font-semibold">{current.uv}</p>
           </div>
 
           {/* Visibility */}
-          <div className="bg-black/30 rounded-xl p-4 text-center">
+          <div className="bg-blue-300 rounded-full p-4 text-center">
             <p className="text-white/80 mb-1">Visibility</p>
             <p className="text-white text-xl font-semibold">
               {visibility} {UnitUtils.getVisibilitySymbol(unitSystem)}
